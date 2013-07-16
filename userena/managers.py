@@ -96,7 +96,7 @@ class UserenaManager(UserManager):
         :return: The newly created :class:`UserenaSignup` instance.
 
         """
-        if isinstance(user.username, unicode):
+        if isinstance(user.username, str):
             user.username = user.username.encode('utf-8')
         salt, activation_key = generate_sha1(user.username)
 
@@ -246,7 +246,7 @@ class UserenaManager(UserManager):
         warnings = []
 
         # Check that all the permissions are available.
-        for model, perms in ASSIGNED_PERMISSIONS.items():
+        for model, perms in list(ASSIGNED_PERMISSIONS.items()):
             if model == 'profile':
                 model_obj = get_profile_model()
             else: model_obj = get_user_model()
@@ -274,7 +274,7 @@ class UserenaManager(UserManager):
             else:
                 all_permissions = get_perms(user, user_profile) + get_perms(user, user)
 
-                for model, perms in ASSIGNED_PERMISSIONS.items():
+                for model, perms in list(ASSIGNED_PERMISSIONS.items()):
                     if model == 'profile':
                         perm_object = user.get_profile()
                     else: perm_object = user

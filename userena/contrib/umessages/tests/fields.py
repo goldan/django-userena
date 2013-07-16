@@ -23,28 +23,28 @@ class CommaSeperatedFieldTests(TestCase):
         invalid_data_dicts = [
             # Empty username
             {'data': {'users': ''},
-             'error': ('users', [u'This field is required.'])},
+             'error': ('users', ['This field is required.'])},
             # No data
             {'data': {},
-             'error': ('users', [u'This field is required.'])},
+             'error': ('users', ['This field is required.'])},
             # A list
             {'data': {'users': []},
-             'error': ('users', [u'This field is required.'])},
+             'error': ('users', ['This field is required.'])},
             # Forbidden username
             {'data': {'users': 'jane'},
-             'error': ('users', [u'The following usernames are incorrect: jane.'])},
+             'error': ('users', ['The following usernames are incorrect: jane.'])},
             # Non-existant username
             {'data': {'users': 'foo'},
-             'error': ('users', [u'The following usernames are incorrect: foo.'])},
+             'error': ('users', ['The following usernames are incorrect: foo.'])},
             # Multiple invalid usernames
             {'data': {'users': 'foo, bar'},
-             'error': ('users', [u'The following usernames are incorrect: foo, bar.'])},
+             'error': ('users', ['The following usernames are incorrect: foo, bar.'])},
             # Valid and invalid
             {'data': {'users': 'foo, john, bar'},
-             'error': ('users', [u'The following usernames are incorrect: foo, bar.'])},
+             'error': ('users', ['The following usernames are incorrect: foo, bar.'])},
             # Extra whitespace
             {'data': {'users': 'foo,    john  '},
-             'error': ('users', [u'The following usernames are incorrect: foo.'])},
+             'error': ('users', ['The following usernames are incorrect: foo.'])},
 
         ]
         for invalid_dict in invalid_data_dicts:

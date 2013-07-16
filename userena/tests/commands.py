@@ -60,7 +60,7 @@ class CheckPermissionTests(TestCase):
         # User should have all permissions again
         user_permissions = UserObjectPermission.objects.filter(user=user).values_list('permission__codename', flat=True)
 
-        required_permissions = [u'change_user', u'delete_user', u'change_profile', u'view_profile']
+        required_permissions = ['change_user', 'delete_user', 'change_profile', 'view_profile']
         for perm in required_permissions:
             if perm not in user_permissions:
                 self.fail()
@@ -73,7 +73,7 @@ class CheckPermissionTests(TestCase):
         profile_model_obj = get_profile_model()
         content_type_profile = ContentType.objects.get_for_model(profile_model_obj)
         content_type_user = ContentType.objects.get_for_model(User)
-        for model, perms in ASSIGNED_PERMISSIONS.items():
+        for model, perms in list(ASSIGNED_PERMISSIONS.items()):
             if model == "profile":
                 content_type = content_type_profile
             else: content_type = content_type_user
@@ -82,7 +82,7 @@ class CheckPermissionTests(TestCase):
                                        content_type=content_type).delete()
 
         # Check if they are they are back
-        for model, perms in ASSIGNED_PERMISSIONS.items():
+        for model, perms in list(ASSIGNED_PERMISSIONS.items()):
             if model == "profile":
                 content_type = content_type_profile
             else: content_type = content_type_user
@@ -97,7 +97,7 @@ class CheckPermissionTests(TestCase):
         call_command('check_permissions', test=True)
 
         # Check if they are they are back
-        for model, perms in ASSIGNED_PERMISSIONS.items():
+        for model, perms in list(ASSIGNED_PERMISSIONS.items()):
             if model == "profile":
                 content_type = content_type_profile
             else: content_type = content_type_user

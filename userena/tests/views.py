@@ -170,7 +170,7 @@ class UserenaViewsTests(ProfileTestCase):
                                           'tos': 'on'})
 
         # And should now be signed out
-        self.failIf(len(self.client.session.keys()) > 0)
+        self.failIf(len(list(self.client.session.keys())) > 0)
 
     def test_signup_view_success(self):
         """

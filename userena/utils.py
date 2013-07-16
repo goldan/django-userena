@@ -9,7 +9,7 @@ except ImportError:
 
 from userena import settings as userena_settings
 
-import urllib, random, datetime
+import urllib.request, urllib.parse, urllib.error, random, datetime
 
 
 def get_gravatar(email, size=80, default='identicon'):
@@ -52,7 +52,7 @@ def get_gravatar(email, size=80, default='identicon'):
             {'base_url': base_url,
              'gravatar_id': md5_constructor(email.lower()).hexdigest()}
 
-    gravatar_url += urllib.urlencode({'s': str(size),
+    gravatar_url += urllib.parse.urlencode({'s': str(size),
                                       'd': default})
     return gravatar_url
 
