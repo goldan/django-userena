@@ -50,7 +50,7 @@ def get_gravatar(email, size=80, default='identicon'):
 
     gravatar_url = '%(base_url)s%(gravatar_id)s?' % \
             {'base_url': base_url,
-             'gravatar_id': md5_constructor(email.lower()).hexdigest()}
+             'gravatar_id': md5_constructor(email.lower().encode('utf-8')).hexdigest()}
 
     gravatar_url += urllib.parse.urlencode({'s': str(size),
                                       'd': default})
