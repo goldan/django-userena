@@ -197,6 +197,13 @@ Default: ``False`` (boolean)
 Boolean value that defines if the ``profile_list`` view is enabled within the
 project. If so, users can view a list of different profiles.
 
+USERENA_DISABLE_SIGNUP
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Default: ``False`` (boolean)
+
+Boolean value that defines if signups are disabled within the project. If so,
+users trying to sign up will be denied.
+
 USERENA_USE_MESSAGES
 ~~~~~~~~~~~~~~~~~~~~
 Default: ``True`` (boolean)
@@ -224,6 +231,20 @@ USERENA_HIDE_EMAIL
 Default: ``False`` (boolean)
 
 Prevents email addresses from being displayed to other users if set to ``True``.
+
+USERENA_HTML_EMAIL
+~~~~~~~~~~~~~~~~~~
+Default: ``False`` (boolean)
+
+If ``True`` multipart emails are generated using html templates.
+
+USERENA_USE_PLAIN_TEMPLATE
+~~~~~~~~~~~~~~~~~~
+Default: ``True`` (boolean)
+
+Uses a text template for plain text part (when ``USERENA_HTML_EMAIL = True``).
+When ``USERENA_HTML_EMAIL = False``, plain text templates are always used for
+emails even if ``USERENA_USE_PLAIN_TEMPLATE = False``.
 
 Django settings
 ---------------
