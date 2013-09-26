@@ -9,7 +9,7 @@
 <ul id="messages">
 {% for message in message_list %}
 <li class="{% if message.sender == user %}send{% else %}received{% endif %}">
-  <img src="{{ message.sender.profile.get_mugshot_url }}" class="avatar {% if message.sender == user %}send{% else %}received{% endif %}" />
+  <img src="{{ message.sender.get_profile.get_mugshot_url }}" class="avatar {% if message.sender == user %}send{% else %}received{% endif %}" />
   <div class="message-content">
     {{ message }}
     <p class="date">{{ message.sent_at }}</p>
