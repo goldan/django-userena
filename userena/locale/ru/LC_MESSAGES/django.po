@@ -208,7 +208,7 @@ msgstr "приватность"
 
 #: models.py:223
 msgid "Designates who can view your profile."
-msgstr "Опредеяет, кто может просматривать ваш профиль."
+msgstr "Определяет, кто может просматривать ваш профиль."
 
 #: models.py:302
 #, python-format
@@ -577,7 +577,7 @@ msgstr "Сменить пароль"
 
 #: templates/userena/password_reset_complete.html:5
 msgid "Password reset"
-msgstr "Сброс пароля"
+msgstr "Восстановление пароля"
 
 #: templates/userena/password_reset_complete.html:6
 msgid "Your password has been reset"
@@ -595,22 +595,27 @@ msgstr ""
 #: templates/userena/password_reset_confirm_form.html:13
 #: templates/userena/password_reset_form.html:4
 msgid "Reset password"
-msgstr "Сброс пароля"
+msgstr "Восстановление пароля"
 
 #: templates/userena/password_reset_confirm_form.html:9
 #: templates/userena/password_reset_form.html:9
 msgid "Reset Password"
-msgstr "Сброс пароля"
+msgstr "Восстановление пароля"
+
+#: templates/registration/password_reset_subject.txt:2
+#, python-format
+msgid "Password reset on %(site_name)s"
+msgstr "Восстановление пароля на %(site_name)s"
 
 #: templates/userena/password_reset_done.html:4
 #: templates/userena/password_reset_done.html:5
 msgid "Password reset email sent"
-msgstr "Письмо о сбросе пароля отправлено"
+msgstr "Письмо о восстановлении пароля отправлено"
 
 #: templates/userena/password_reset_done.html:8
 msgid ""
 "An e-mail has been sent to you which explains how to reset your password."
-msgstr "Email сообщение с инструкциями о сбросе пароля отправлено."
+msgstr "Email сообщение с инструкциями по восстановлению пароля отправлено."
 
 #: templates/userena/password_reset_form.html:13
 msgid "Send password"
