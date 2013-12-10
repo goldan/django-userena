@@ -109,7 +109,7 @@ class SignupFormOnlyEmail(SignupForm):
     def save(self):
         """ Generate a random username before falling back to parent signup form """
         while True:
-            username = sha_constructor(str(random.random())).hexdigest()[:5]
+            username = sha_constructor(str(random.random()).encode('utf8')).hexdigest()[:5]
             try:
                 get_user_model().objects.get(username__iexact=username)
             except get_user_model().DoesNotExist: break
