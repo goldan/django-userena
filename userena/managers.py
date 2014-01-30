@@ -57,7 +57,7 @@ class UserenaManager(UserManager):
 
         """
         now = get_datetime_now()
-
+        
         new_user = get_user_model().objects.create_user(
             username, email, password)
         new_user.is_active = active
@@ -96,6 +96,8 @@ class UserenaManager(UserManager):
         :return: The newly created :class:`UserenaSignup` instance.
 
         """
+        # FIXME probably it's a bug: we don't need to
+        # make user.username bytes instead of str
         if isinstance(user.username, str):
             user.username = user.username.encode('utf-8')
         salt, activation_key = generate_sha1(user.username)
